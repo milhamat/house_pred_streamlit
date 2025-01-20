@@ -11,7 +11,7 @@ path = os.path.join("artifacts", "train.csv")
 data = pd.read_csv(path)
 
 st.set_page_config(page_title="Data Preprocess", page_icon="🏠", layout="wide")
-st.title("House Prediction Data Preprocessing")
+st.title("Data Preprocessing")
 
 st.write("This page is dedicated to data Preprocessing of the house prediction dataset. The dataset contains 1460 rows and 81 columns. The columns are as follows:")
 st.dataframe(data.head(5))

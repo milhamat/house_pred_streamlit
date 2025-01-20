@@ -1,4 +1,7 @@
 import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+import pandas as pd
 import streamlit as st
 import pickle
 import os
@@ -23,6 +26,28 @@ if 'predicted_price' not in st.session_state:
 st.set_page_config(page_title="Model Prediction", page_icon="🏠", layout="wide")
 st.title("Model Prediction")
 
+path = os.path.join("artifacts", "train.csv")
+data = pd.read_csv(path)
+
+selected = ['Id', 'LotFrontage', 'LotArea', 'OverallQual', 'YearBuilt',
+        'YearRemodAdd', 'GrLivArea', 'FullBath', 'HalfBath', 'BedroomAbvGr',
+        'TotRmsAbvGrd','SalePrice']
+train = data[selected]
+
+train_labels = train.pop('SalePrice')
+
+features = train
+features['LotFrontage'] = features['LotFrontage'].fillna(features['LotFrontage'].mean())
+train_labels = np.log(train_labels)
+train_features = features.drop('Id', axis=1).select_dtypes(include=[np.number]).values
+
+# Split the data into training and test sets 
+x_train, x_test, y_train, y_test = train_test_split(train_features, 
+                                                    train_labels, 
+                                                    test_size=0.1, 
+                                                    random_state=0)
+
+
 # Two-column layout
 col1, col2 = st.columns([2, 1])
 
@@ -42,6 +67,18 @@ with col1:
 
 # Button and prediction result in col2
 with col2:
+    st.header("Model Evaluation")
+    y_pred = st.session_state.model.predict(x_test)
+    r2 = r2_score(y_test, y_pred)
+    rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+    mse = mean_squared_error(y_test, y_pred)
+    mae = mean_absolute_error(y_test, y_pred)
+
+    st.write(f"R2 Score: {r2:.2f}")
+    st.write(f"Root Mean Squared Error: {rmse:.2f}")
+    st.write(f'Mean Squared Error: {mse:.2f}')
+    st.write(f'Mean Absolute Error: {mae:.2f}')
+    
     st.header("Prediction")
     # Button to trigger prediction
     if st.button("Predict Price"):
