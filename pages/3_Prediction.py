@@ -29,16 +29,16 @@ col1, col2 = st.columns([2, 1])
 # Input sliders in col1
 with col1:
     st.header("Input Features")
-    lf = st.slider("LotFrontage", 0, 130, 25)
-    la = st.slider("LotArea", 0, 130, 25)
-    oq = st.slider("OverallQual", 0, 130, 25)
-    yb = st.slider("YearBuilt", 1900, 2023, 2000)
-    yr = st.slider("YearRemodAdd", 1900, 2023, 2005)
-    gla = st.slider("GrLivArea", 0, 130, 25)
-    fb = st.slider("FullBath", 0, 5, 2)
-    hb = st.slider("HalfBath", 0, 5, 1)
-    bag = st.slider("BedroomAbvGr", 0, 10, 3)
-    trag = st.slider("TotRmsAbvGrd", 0, 15, 7)
+    lf = st.slider("Linear feet of street connected to property", 21, 313, 200)
+    la = st.slider("Lot size in square feet", 1300, 2000, 1500)
+    oq = st.slider("Overall material and finish quality", 1, 10, 5)
+    yb = st.slider("Original construction date", 1872, 2010, 1950)
+    yr = st.slider("Remodel date", 1950, 2010, 1980)
+    gla = st.slider("Above grade (ground) living area square feet", 334, 1000, 500)
+    fb = st.slider("Full bathrooms above grade", 0, 4, 2)
+    hb = st.slider("Half baths above grade", 0, 2, 1)
+    bag = st.slider("Bedroom above grade", 0, 8, 3)
+    trag = st.slider("Total rooms above grade (does not include bathrooms)", 2, 15, 7)
 
 # Button and prediction result in col2
 with col2:
