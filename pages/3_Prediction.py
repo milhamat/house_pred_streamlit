@@ -63,7 +63,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 )
 
 # Streamlit app layout
-st.set_page_config(page_title="Model Prediction", page_icon="🏠", layout="wide")
+st.set_page_config(page_title="Model Prediction", page_icon="🧙‍♀️", layout="wide")
 st.title("Model Prediction")
 
 col1, col2 = st.columns([2, 1])
