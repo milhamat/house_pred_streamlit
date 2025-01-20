@@ -1,7 +1,10 @@
 import streamlit as st
+import numpy as np
 import pandas as pd
 import os
+import seaborn as sns
 import matplotlib.pyplot as plt
+from io import BytesIO
 
 path = os.path.join("artifacts", "train.csv")
 data = pd.read_csv(path)
@@ -41,3 +44,23 @@ fig, ax = plt.subplots(figsize=(12, 12))
 train.hist(figsize=(20, 20), color='skyblue', ax=ax)
 
 st.pyplot(fig)
+
+st.write("y_label Log transformation")
+
+st.write("Before")
+fig1, ax = plt.subplots(figsize=(3, 3))
+sns.histplot(train['SalePrice'], kde=True, color="skyblue", ax=ax)
+buf = BytesIO()
+fig1.savefig(buf, format="png")
+st.image(buf)
+# st.pyplot(fig1)
+
+st.write("After")
+fig2, ax = plt.subplots(figsize=(3, 3))
+sns.histplot(np.log(train['SalePrice']), kde=True, color="skyblue", ax=ax)
+buf = BytesIO()
+fig2.savefig(buf, format="png")
+st.image(buf)
+# st.pyplot(fig2)
+
+st.write("after the Log transformation, the data is more normally distributed")
