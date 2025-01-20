@@ -69,7 +69,7 @@ fig2.savefig(buf, format="png")
 col2.image(buf)
 
 st.write("after the Log transformation, the data is more normally distributed")
-st.write("lastly, we need to fill the LotFrontage missing values with the median value")
+st.write("lastly, we need to fill the LotFrontage missing values with the mean value")
 
 
 
@@ -81,7 +81,7 @@ sns.histplot(train['LotFrontage'], kde=True, color="skyblue", ax=ax)
 fig3.savefig(buf, format="png")
 col1.pyplot(fig3)
 
-train['LotFrontage'] = train['LotFrontage'].fillna(train['LotFrontage'].median())
+train['LotFrontage'] = train['LotFrontage'].fillna(train['LotFrontage'].mean())
 
 col2.subheader("After")
 fig4, ax = plt.subplots(figsize=(3, 3))
