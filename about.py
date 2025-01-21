@@ -56,7 +56,7 @@ st.markdown(
         - Setting the server and deploy the website on campus server.
         - Design the User Interface of the Website
     
-    Project Url: [here]()
+    Project Url: [here](https://isdc-ntub-dashboard.onrender.com/)
     
     2. **Machine Learning Tools** - March 2024
         (Personal Projects)
