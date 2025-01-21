@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import os
 
 st.set_page_config(page_title="Data Analytics", page_icon="📊", layout="wide")
-st.title("Data Analytics")
+st.title("📊 Data Analytics")
 
 # Load dataset
 path = os.path.join("artifacts", "train.csv")

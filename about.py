@@ -7,7 +7,7 @@ st.set_page_config(
     page_icon="🏠"
 )
 
-st.title("About.")
+st.title("🏠 About")
 # st.write("Welcome to the main application! Use the sidebar to navigate to other pages.")
 
 col1, col2 = st.columns([1, 4])
@@ -24,7 +24,7 @@ with col2:
     - You can check my profile on [LinkedIn](linkedin.com/in/milhamat)
     - You can check my full portofolion on [milhamat](https://milhamat.github.io/about.html)
     - You can check my github on [milhamat](https://github.com/milhamat)
-    - You can check my [RESUME](https://drive.google.com/file/d/1ZMSHgpSi_Z0VIo1tpmJr0yxYU1vEqiTG/view?usp=sharing)
+    - You can download my [RESUME](https://drive.google.com/file/d/1ZMSHgpSi_Z0VIo1tpmJr0yxYU1vEqiTG/view?usp=sharing)
     """
     )
     
@@ -61,7 +61,7 @@ st.markdown(
     2. **Machine Learning Tools** - March 2024
         (Personal Projects)
         - Build web app for exploratory data visualization using R and Shiny.
-        - Build an regresion and Classification within the web app.
+        - Build an regresion and Classification model within the web app.
         - Deploy the web app using shinyapps.io. 
     
     Project Url: [here](https://milhamat.shinyapps.io/ML_module/)
@@ -79,3 +79,5 @@ st.markdown(
         - Based on this combination the model improve 17% of accuracy.
     """
 )
+
+st.subheader("More Projects Available on: [here](https://milhamat.github.io/portfolio.html)")
